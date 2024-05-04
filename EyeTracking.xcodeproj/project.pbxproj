@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA46848A2BE406A100A43CD6 /* CustomContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4684892BE406A100A43CD6 /* CustomContainer.swift */; };
 		FAEFA1DD2BE403BE00EE37E0 /* EyeTrackingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFA1DC2BE403BE00EE37E0 /* EyeTrackingApp.swift */; };
 		FAEFA1DF2BE403BE00EE37E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFA1DE2BE403BE00EE37E0 /* ContentView.swift */; };
 		FAEFA1E12BE403BF00EE37E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEFA1E02BE403BF00EE37E0 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA4684892BE406A100A43CD6 /* CustomContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomContainer.swift; sourceTree = "<group>"; };
 		FAEFA1D92BE403BE00EE37E0 /* EyeTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EyeTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEFA1DC2BE403BE00EE37E0 /* EyeTrackingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackingApp.swift; sourceTree = "<group>"; };
 		FAEFA1DE2BE403BE00EE37E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		FAEFA1DB2BE403BE00EE37E0 /* EyeTracking */ = {
 			isa = PBXGroup;
 			children = (
+				FA4684892BE406A100A43CD6 /* CustomContainer.swift */,
 				FAEFA1DC2BE403BE00EE37E0 /* EyeTrackingApp.swift */,
 				FAEFA1DE2BE403BE00EE37E0 /* ContentView.swift */,
 				FAEFA1E02BE403BF00EE37E0 /* Assets.xcassets */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEFA1DF2BE403BE00EE37E0 /* ContentView.swift in Sources */,
+				FA46848A2BE406A100A43CD6 /* CustomContainer.swift in Sources */,
 				FAEFA1DD2BE403BE00EE37E0 /* EyeTrackingApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +279,7 @@
 				DEVELOPMENT_TEAM = J736YJDRJZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app use the camera for detect the blink of the user eyes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -303,6 +308,7 @@
 				DEVELOPMENT_TEAM = J736YJDRJZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app use the camera for detect the blink of the user eyes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
