@@ -14,10 +14,13 @@ struct CustomContainer: UIViewRepresentable {
     @Binding var LeftisWinking: Bool
     @Binding var RightisWinking: Bool
     
+    @Binding var SmileLeftCheck: Bool
+    @Binding var SmileRightCheck: Bool
+    
     
     func makeUIView(context: Context) -> CustomARView {
         
-        return CustomARView(LeftisWinking : $LeftisWinking , RightisWinking : $RightisWinking)
+        return CustomARView(LeftisWinking : $LeftisWinking , RightisWinking : $RightisWinking , SmileLeftCheck : $SmileLeftCheck, SmileRightCheck : $SmileRightCheck)
         
     }
     
@@ -25,13 +28,20 @@ struct CustomContainer: UIViewRepresentable {
 }
 
 class CustomARView: ARView, ARSessionDelegate {
+    
     @Binding var LeftisWinking: Bool
     @Binding var RightisWinking: Bool
     
-    init(LeftisWinking: Binding<Bool> , RightisWinking: Binding<Bool>) {
+    @Binding var SmileLeftCheck: Bool
+    @Binding var SmileRightCheck: Bool
+    
+    init(LeftisWinking: Binding<Bool> , RightisWinking: Binding<Bool>,SmileLeftCheck: Binding<Bool> , SmileRightCheck: Binding<Bool>) {
        
         _LeftisWinking = LeftisWinking
         _RightisWinking = RightisWinking
+        
+        _SmileLeftCheck = SmileLeftCheck
+        _SmileRightCheck = SmileRightCheck
         
         super.init(frame: .zero)
         
@@ -49,6 +59,8 @@ class CustomARView: ARView, ARSessionDelegate {
         }
         
         detectBlink(faceAnchor: faceAnchor)
+        
+        detectSmile(faceAnchor: faceAnchor)
         
     }
     
@@ -74,6 +86,31 @@ class CustomARView: ARView, ARSessionDelegate {
             
         }
     }
+    
+    private func detectSmile(faceAnchor: ARFaceAnchor) {
+        
+        let blendShapes = faceAnchor.blendShapes
+        
+        if let smileLeft = blendShapes[.mouthSmileLeft] as? Float,
+           let smileRight = blendShapes[.mouthSmileRight] as? Float {
+            
+            if smileRight > 0.6 {
+                SmileRightCheck = true
+            } else {
+                SmileRightCheck = false
+            }
+            
+            if smileLeft > 0.6 {
+                SmileLeftCheck = true
+            } else {
+                SmileLeftCheck = false
+            }
+            
+        }
+    }
+    
+    
+    
     
     
    @MainActor required dynamic init?(coder decoder: NSCoder) {

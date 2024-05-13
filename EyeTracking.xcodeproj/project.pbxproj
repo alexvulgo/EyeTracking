@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		FA46848A2BE406A100A43CD6 /* CustomContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4684892BE406A100A43CD6 /* CustomContainer.swift */; };
+		FAB42A1B2BE8BF580067FFB0 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB42A1A2BE8BF580067FFB0 /* CardModel.swift */; };
+		FAB42A1D2BE8C1290067FFB0 /* EyeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB42A1C2BE8C1290067FFB0 /* EyeSelection.swift */; };
+		FAB42A252BEBF3410067FFB0 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB42A242BEBF3410067FFB0 /* OnboardingView.swift */; };
+		FAC9FF852BEE97B4003C67C0 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9FF842BEE97B4003C67C0 /* ItemModel.swift */; };
+		FAC9FF872BF21B6D003C67C0 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9FF862BF21B6D003C67C0 /* ItemViewModel.swift */; };
 		FAEFA1DD2BE403BE00EE37E0 /* EyeTrackingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFA1DC2BE403BE00EE37E0 /* EyeTrackingApp.swift */; };
 		FAEFA1DF2BE403BE00EE37E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEFA1DE2BE403BE00EE37E0 /* ContentView.swift */; };
 		FAEFA1E12BE403BF00EE37E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEFA1E02BE403BF00EE37E0 /* Assets.xcassets */; };
@@ -16,6 +21,11 @@
 
 /* Begin PBXFileReference section */
 		FA4684892BE406A100A43CD6 /* CustomContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomContainer.swift; sourceTree = "<group>"; };
+		FAB42A1A2BE8BF580067FFB0 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		FAB42A1C2BE8C1290067FFB0 /* EyeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeSelection.swift; sourceTree = "<group>"; };
+		FAB42A242BEBF3410067FFB0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		FAC9FF842BEE97B4003C67C0 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		FAC9FF862BF21B6D003C67C0 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
 		FAEFA1D92BE403BE00EE37E0 /* EyeTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EyeTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEFA1DC2BE403BE00EE37E0 /* EyeTrackingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackingApp.swift; sourceTree = "<group>"; };
 		FAEFA1DE2BE403BE00EE37E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +44,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FAC9FF882BF21B74003C67C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAC9FF842BEE97B4003C67C0 /* ItemModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FAC9FF892BF21B89003C67C0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FAC9FF862BF21B6D003C67C0 /* ItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FAC9FF8A2BF21BA0003C67C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAB42A242BEBF3410067FFB0 /* OnboardingView.swift */,
+				FAEFA1DE2BE403BE00EE37E0 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FAC9FF8B2BF21BCC003C67C0 /* ARcontainer */ = {
+			isa = PBXGroup;
+			children = (
+				FA4684892BE406A100A43CD6 /* CustomContainer.swift */,
+			);
+			path = ARcontainer;
+			sourceTree = "<group>";
+		};
 		FAEFA1D02BE403BE00EE37E0 = {
 			isa = PBXGroup;
 			children = (
@@ -53,11 +96,15 @@
 		FAEFA1DB2BE403BE00EE37E0 /* EyeTracking */ = {
 			isa = PBXGroup;
 			children = (
-				FA4684892BE406A100A43CD6 /* CustomContainer.swift */,
 				FAEFA1DC2BE403BE00EE37E0 /* EyeTrackingApp.swift */,
-				FAEFA1DE2BE403BE00EE37E0 /* ContentView.swift */,
+				FAC9FF8B2BF21BCC003C67C0 /* ARcontainer */,
+				FAC9FF882BF21B74003C67C0 /* Model */,
+				FAC9FF892BF21B89003C67C0 /* ViewModel */,
+				FAC9FF8A2BF21BA0003C67C0 /* View */,
 				FAEFA1E02BE403BF00EE37E0 /* Assets.xcassets */,
 				FAEFA1E22BE403BF00EE37E0 /* Preview Content */,
+				FAB42A1A2BE8BF580067FFB0 /* CardModel.swift */,
+				FAB42A1C2BE8C1290067FFB0 /* EyeSelection.swift */,
 			);
 			path = EyeTracking;
 			sourceTree = "<group>";
@@ -141,8 +188,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEFA1DF2BE403BE00EE37E0 /* ContentView.swift in Sources */,
+				FAC9FF872BF21B6D003C67C0 /* ItemViewModel.swift in Sources */,
+				FAB42A1B2BE8BF580067FFB0 /* CardModel.swift in Sources */,
 				FA46848A2BE406A100A43CD6 /* CustomContainer.swift in Sources */,
+				FAB42A252BEBF3410067FFB0 /* OnboardingView.swift in Sources */,
 				FAEFA1DD2BE403BE00EE37E0 /* EyeTrackingApp.swift in Sources */,
+				FAC9FF852BEE97B4003C67C0 /* ItemModel.swift in Sources */,
+				FAB42A1D2BE8C1290067FFB0 /* EyeSelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +335,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -312,6 +365,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
