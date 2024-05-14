@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var stateManager: StateManager
+    
     //Eyes Check Variable
     
     @State var LeftisWinking: Bool = false
@@ -91,16 +93,27 @@ struct ContentView: View {
                 timer?.invalidate()
                 timer = nil
                 
+                if(viewModel.items[currentIndex].selection == "Back") {
+                    back()
+                }
+                
                 if(viewModel.items[currentIndex].selection == "Not selected") {
                     viewModel.items[currentIndex].selection = "Selected"
                 } else {
                     viewModel.items[currentIndex].selection = "Not selected"
                 }
                 
+               
+                    
+                
                 resetCountdown()
               
             }
         }
+    }
+    
+    func back() {
+        stateManager.currentState = .onboarding
     }
     
     

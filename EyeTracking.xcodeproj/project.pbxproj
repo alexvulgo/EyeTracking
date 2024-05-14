@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA46848A2BE406A100A43CD6 /* CustomContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4684892BE406A100A43CD6 /* CustomContainer.swift */; };
+		FA4E528F2BF3D4B600BCF4D7 /* SceneContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E528E2BF3D4B600BCF4D7 /* SceneContainerView.swift */; };
 		FAB42A252BEBF3410067FFB0 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB42A242BEBF3410067FFB0 /* OnboardingView.swift */; };
 		FAC9FF852BEE97B4003C67C0 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9FF842BEE97B4003C67C0 /* ItemModel.swift */; };
 		FAC9FF872BF21B6D003C67C0 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC9FF862BF21B6D003C67C0 /* ItemViewModel.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		FA4684892BE406A100A43CD6 /* CustomContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomContainer.swift; sourceTree = "<group>"; };
+		FA4E528E2BF3D4B600BCF4D7 /* SceneContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneContainerView.swift; sourceTree = "<group>"; };
 		FAB42A242BEBF3410067FFB0 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		FAC9FF842BEE97B4003C67C0 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		FAC9FF862BF21B6D003C67C0 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
@@ -65,12 +67,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		FAC9FF8B2BF21BCC003C67C0 /* ARcontainer */ = {
+		FAC9FF8B2BF21BCC003C67C0 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				FA4684892BE406A100A43CD6 /* CustomContainer.swift */,
+				FA4E528E2BF3D4B600BCF4D7 /* SceneContainerView.swift */,
 			);
-			path = ARcontainer;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		FAEFA1D02BE403BE00EE37E0 = {
@@ -93,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				FAEFA1DC2BE403BE00EE37E0 /* EyeTrackingApp.swift */,
-				FAC9FF8B2BF21BCC003C67C0 /* ARcontainer */,
+				FAC9FF8B2BF21BCC003C67C0 /* Utility */,
 				FAC9FF882BF21B74003C67C0 /* Model */,
 				FAC9FF892BF21B89003C67C0 /* ViewModel */,
 				FAC9FF8A2BF21BA0003C67C0 /* View */,
@@ -182,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEFA1DF2BE403BE00EE37E0 /* ContentView.swift in Sources */,
+				FA4E528F2BF3D4B600BCF4D7 /* SceneContainerView.swift in Sources */,
 				FAC9FF872BF21B6D003C67C0 /* ItemViewModel.swift in Sources */,
 				FA46848A2BE406A100A43CD6 /* CustomContainer.swift in Sources */,
 				FAB42A252BEBF3410067FFB0 /* OnboardingView.swift in Sources */,

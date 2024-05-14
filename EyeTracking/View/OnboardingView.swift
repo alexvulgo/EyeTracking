@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    
+    @EnvironmentObject var stateManager: StateManager
+    
+    func start() {
+        stateManager.currentState = .firstView
+    }
 
         var body: some View {
             
@@ -60,7 +66,7 @@ struct OnboardingView: View {
                 
             Button(action: {
                            
-                           //start()
+                           start()
                            
                        }, label: {
                            Text("Start test")

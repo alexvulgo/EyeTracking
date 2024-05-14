@@ -7,12 +7,35 @@
 
 import SwiftUI
 
+
+enum AppState {
+    case onboarding
+    case firstView
+}
+
+
+class StateManager: ObservableObject{
+    
+    @Published var currentState = AppState.onboarding
+    
+}
+    
+
+
 @main
 struct EyeTrackingApp: App {
+    
+    private var stateManager = StateManager()
+    
+    init() {
+        
+    }
+    
+    
     var body: some Scene {
         WindowGroup {
-            OnboardingView()
-            //ContentView(viewModel : itemViewModel())
+            SceneContainerView()
+                .environmentObject(stateManager)
         }
     }
 }
