@@ -72,13 +72,13 @@ class CustomARView: ARView, ARSessionDelegate {
         if let leftEyeBlink = blendShapes[.eyeBlinkLeft] as? Float,
            let rightEyeBlink = blendShapes[.eyeBlinkRight] as? Float {
             
-            if rightEyeBlink > 0.9 {
+            if rightEyeBlink > 0.8 {
                 RightisWinking = true
             } else {
                 RightisWinking = false
             }
             
-            if leftEyeBlink > 0.9 {
+            if leftEyeBlink > 0.8 {
                 LeftisWinking = true
             } else {
                 LeftisWinking = false

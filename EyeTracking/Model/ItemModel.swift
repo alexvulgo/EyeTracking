@@ -11,6 +11,7 @@ struct Item : Identifiable {
     var id: UUID = UUID()
     var name: String
     var color : Color
+    var selection : String = "Not selected"
 }
 
 

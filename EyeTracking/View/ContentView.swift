@@ -19,13 +19,19 @@ struct ContentView: View {
     @State var SmileLeftCheck: Bool = false
     @State var SmileRightCheck: Bool = false
     
-    //Array
-    
     @State var viewModel : itemViewModel
     @State private var currentIndex : Int = 0
     
+    @State private var selection = "Not selected"
+    
+    @State private var count = 0
+    
+    @State private var timer: Timer? //timer used for countdown
+    @State private var counter = 3 //the user have to mantain the position for 5 seconds
+    
+    @State private var load : Bool = false
+    
     //Scrolling functions
-    //Con la camera gli occhi risultano specchiati quindi scroll destra -> left blink, scroll sinistra -> right blink
     
     func scroll_right() {
         if (RightisWinking == false && LeftisWinking == true) {
@@ -56,7 +62,48 @@ struct ContentView: View {
     
     func confirm() {
         
+        if (load == false){
+            load = true
+            startCountdown()
+        } else if (load == true) {
+            load = false
+            resetCountdown()
+        }
+        
     }
+    
+    //Timer functions
+    
+    func resetCountdown() {
+        counter = 3
+        
+        if ((timer?.isValid) != nil)  {
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
+    func startCountdown() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            counter -= 1
+            
+            if(counter == 0){
+                timer?.invalidate()
+                timer = nil
+                
+                if(viewModel.items[currentIndex].selection == "Not selected") {
+                    viewModel.items[currentIndex].selection = "Selected"
+                } else {
+                    viewModel.items[currentIndex].selection = "Not selected"
+                }
+                
+                resetCountdown()
+              
+            }
+        }
+    }
+    
+    
     
     var body: some View {
         
@@ -64,7 +111,7 @@ struct ContentView: View {
             
             VStack() {
                 
-                Spacer(minLength: 50)
+                Spacer(minLength: 30)
                 
                 ZStack(){
                     
@@ -72,12 +119,18 @@ struct ContentView: View {
                         
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: 200, height: 200)
-                            .foregroundStyle(.white)
+                            .foregroundStyle(viewModel.items[index].color)
                             .opacity(currentIndex == index ? 1.0 : 0.5)
                             .scaleEffect(currentIndex == index ? 1.1 : 0.9)
                             .offset(x: CGFloat(index - currentIndex) * 220)
                             .shadow(radius: 5)
                         
+                        
+                        
+                        Text(viewModel.items[index].selection)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 25).fill(.regularMaterial))
+                            .offset(x: CGFloat(index - currentIndex) * 220)
                         
                         // Scroll Selection
                         
@@ -89,10 +142,20 @@ struct ContentView: View {
                         scroll_left()
                     }
                     
+                    .onChange(of: SmileLeftCheck || SmileRightCheck){
+                        confirm()
+                    }
+                    
                     
                 } .padding(.vertical)
                 
-                Spacer(minLength: 50)
+               
+                Text(counter.description)
+                    .font(.title2)
+                    .padding()
+                    .bold()
+                
+                Spacer()
                 
                 ZStack() {
                     //Camera position
@@ -100,11 +163,11 @@ struct ContentView: View {
                         .ignoresSafeArea()
                     
                     VStack {
-                        
                         Spacer()
                         Text(SmileLeftCheck || SmileRightCheck ? "Smiling" : "Not Smiling")
                             .padding()
-                            .background(RoundedRectangle(cornerRadius: 25).fill(.regularMaterial))
+                            .background(RoundedRectangle(cornerRadius: 25).fill(.regularMaterial)
+                                .stroke(SmileLeftCheck || SmileRightCheck ? .green : .red,lineWidth: 2))
                         
                     }
                     
@@ -117,8 +180,6 @@ struct ContentView: View {
     }
     
 }
-
-
 
 
 #Preview {
