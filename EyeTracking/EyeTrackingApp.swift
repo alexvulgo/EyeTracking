@@ -11,7 +11,8 @@ import SwiftUI
 struct EyeTrackingApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel : itemViewModel())
+            OnboardingView()
+            //ContentView(viewModel : itemViewModel())
         }
     }
 }
