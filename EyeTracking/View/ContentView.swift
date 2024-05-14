@@ -27,7 +27,7 @@ struct ContentView: View {
     @State private var count = 0
     
     @State private var timer: Timer? //timer used for countdown
-    @State private var counter = 3 //the user have to mantain the position for 5 seconds
+    @State private var counter = 2 //the user have to mantain the position for 5 seconds
     
     @State private var load : Bool = false
     
@@ -75,7 +75,7 @@ struct ContentView: View {
     //Timer functions
     
     func resetCountdown() {
-        counter = 3
+        counter = 2
         
         if ((timer?.isValid) != nil)  {
             timer?.invalidate()
@@ -120,7 +120,7 @@ struct ContentView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .frame(width: 200, height: 200)
                             .foregroundStyle(viewModel.items[index].color)
-                            .opacity(currentIndex == index ? 1.0 : 0.5)
+                            .opacity(viewModel.items[index].selection == "Selected" ? 1.0 : 0.5)
                             .scaleEffect(currentIndex == index ? 1.1 : 0.9)
                             .offset(x: CGFloat(index - currentIndex) * 220)
                             .shadow(radius: 5)
