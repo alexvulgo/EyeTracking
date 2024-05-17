@@ -30,10 +30,12 @@ struct OnboardingView: View {
                         .font(.largeTitle)
                         .foregroundStyle(.blue)
                         .padding()
+                        
                  
                         Text("Face tracking")
                             .bold()
-                        Text("This test use ARKit face tracking for let the user use the app without using hands.")
+                        Text("This test uses ARKit face tracking to let users interact without using hands.")
+                        .multilineTextAlignment(.center)
                         
                     
                     
@@ -44,7 +46,12 @@ struct OnboardingView: View {
                     
                     Text("Eyes detection")
                         .bold()
-                    Text("Use the blink of your eyes to scroll right or left.")
+                    Text("Use your eyes to scroll.")
+                        .multilineTextAlignment(.center)
+                    Text("Right blink: scroll right")
+                        .multilineTextAlignment(.center)
+                    Text("Left blink: scroll left")
+                        .multilineTextAlignment(.center)
                     
                     Image(systemName: "smiley.fill")
                         .font(.largeTitle)
@@ -53,7 +60,8 @@ struct OnboardingView: View {
                     
                     Text("Smile detection")
                         .bold()
-                    Text("Keep your smile for 2 seconds to confirm your selection.")
+                    Text("Smile for two seconds to confirm your selection.")
+                        .multilineTextAlignment(.center)
                         
                     
                     

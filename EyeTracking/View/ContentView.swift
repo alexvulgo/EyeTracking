@@ -163,7 +163,7 @@ struct ContentView: View {
                 } .padding(.vertical)
                 
                
-                Text(counter.description)
+                Text("Timer: \(counter.description)")
                     .font(.title2)
                     .padding()
                     .bold()
