@@ -214,6 +214,100 @@ private func detectSmile(faceAnchor: ARFaceAnchor) {
 
 ```
 
+Just like scrolling, the boolean variables `smileRightCheck` and `smileLeftCheck` are always monitoring these values in the main view and are utilized in the function `.onChange()` verifying if the user is smiling or not.
+
+```swift
+.onChange(of: SmileLeftCheck || SmileRightCheck) {
+    confirm()
+}
+
+func confirm() {
+    if (load == false) {
+        load = true
+        startCountdown()
+    } else if (load == true) {
+        load = false
+        resetCountdown()
+    }
+}
+
+```
+A confirmation function is triggered when the smile is detected due to changes in the boolean control variables, which will manage the selection of an element via a **timer**. To keep unwanted movements from interfering with the array, the user is required to keep a smile for two seconds. Interrupting the smile causes the **timer** to become invalid and the user must repeat the procedure.
+
+## Navigation
+
+Switching between different views was another problem that I wanted to address while developing this solution. My inability to interact with buttons manually prevented me from using a simple navigation link to move between the views. To overcome this issue, I developed a custom view manager that utilizes an `EnvironmentObject` and a switch function. During testing, only onboarding and first view were established.
+
+#### EyeTrackingApp.swift
+
+```swift
+import SwiftUI
+
+enum AppState {
+    case onboarding
+    case firstView
+}
+
+class StateManager: ObservableObject {
+    @Published var currentState = AppState.onboarding
+}
+
+@main
+struct EyeTrackingApp: App {
+    private var stateManager = StateManager()
+    
+    init() { }
+    
+    var body: some Scene {
+        WindowGroup {
+            SceneContainerView()
+                .environmentObject(stateManager)
+        }
+    }
+}
+
+```
+
+#### SceneContainerView.swift
+
+```swift
+
+import SwiftUI
+
+struct SceneContainerView: View {
+    @EnvironmentObject var stateManager: StateManager
+    
+    var body: some View {
+        switch(stateManager.currentState) {
+        case .onboarding:
+            OnboardingView()
+                .environmentObject(stateManager)
+            
+        case .firstView:
+            ContentView(viewModel: itemViewModel())
+                .environmentObject(stateManager)
+        }
+    }
+}
+
+```
+
+Invoking a function that sets a change of state is sufficient to change the view. Consequently, it is possible to create an object within the application that, recognizing the user's smile, invokes the function and alters the view. 
+
+In my case, the final element in the array when selected serves as a back button and brings the user back to the onboarding view.
+
+```swift
+func back() {
+    stateManager.currentState = .onboarding
+}
+
+```
+
+
+
+
+
+
 
 
 
