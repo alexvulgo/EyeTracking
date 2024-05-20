@@ -26,7 +26,17 @@ The last card is an example to show how it is possible to move between different
 
 An onboarding page when starting the application summarizes the commands that were just listed.
 
-<img src="https://github.com/alexvulgo/EyeTracking/assets/120048791/46ff0320-d8e2-4877-96e9-084f9cb7c35e" width=30% height=30%>
+<img src="https://github.com/alexvulgo/EyeTracking/assets/120048791/46ff0320-d8e2-4877-96e9-084f9cb7c35e" width=40% height=40%>
+
+## Contents
+
+- [Eye Tracking](#eye-tracking)
+- [Scrolling](#scrolling)
+- [Selection](#selection)
+- [Navigation](#navigation)
+- [Documentation](#documentation)
+
+
 
 ## Eye Tracking
 
@@ -134,6 +144,10 @@ In my case, I opted for:
 
 **blendShapes[.eyeBlinkRight]** -> The coefficient describing closure of the eyelids over the right eye.
 
+![occhi](https://github.com/alexvulgo/EyeTracking/assets/120048791/c4c2d8b2-7910-42ff-ba2d-8b378eb3a59d)
+
+
+
 When the left eye is completely open, the variable **eyeBlinkLeft** corresponding value is 0.0, and when it is completely closed, it’s 1.0. Similar reasoning applies to the **eyeBlinkRight** variable. Checking if the variable representing this coefficient is greater than 0.9 is the only way to confirm the actual closure or “blink” of the eye. In order to ensure easy accessibility, I decreased the value of this test to increase control fluidity even when the eye is not completely closed.
 
 When the value of the variables **eyeBlinkLeft** and **eyeBlinkRight** correspond to the closing of the respective eyelid, the boolean variables **LeftisWinking** and **RightisWinking** become true. These two variables allow control of the array in the contentView.
@@ -232,6 +246,9 @@ func confirm() {
 }
 
 ```
+
+![bocca](https://github.com/alexvulgo/EyeTracking/assets/120048791/0ea50b70-5641-4834-9113-b81d7ae7405d)
+
 A confirmation function is triggered when the smile is detected due to changes in the boolean control variables, which will manage the selection of an element via a **timer**. To keep unwanted movements from interfering with the array, the user is required to keep a smile for two seconds. Interrupting the smile causes the **timer** to become invalid and the user must repeat the procedure.
 
 ## Navigation
@@ -302,6 +319,19 @@ func back() {
 }
 
 ```
+
+## Documentation
+
+• [Face Tracking](https://developer.apple.com/documentation/arkit/arkit_in_ios/content_anchors/tracking_and_visualizing_faces)
+
+• [Face Anchor](https://developer.apple.com/documentation/arkit/arfaceanchor)
+
+• [BlendShapes](https://developer.apple.com/documentation/arkit/arfaceanchor/2928251-blendshapes)
+
+
+
+
+
 
 
 
